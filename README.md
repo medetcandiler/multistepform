@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Multi-Step Form with Animation using Next.js 14, React Hook Form, Zod, and TypeScript
 
-## Getting Started
+Create a dynamic and user-friendly multi-step form with smooth animations in your Next.js 14 application. This project leverages modern web technologies, including React Hook Form for form handling, Zod for schema validation, TypeScript for static typing, and Framer Motion for delightful animations.
 
-First, run the development server:
+### Features:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Multi-Step Form**: Divide lengthy forms into manageable steps, improving the user experience and increasing form completion rates.
+- **React Hook Form**: Utilize the power of React Hook Form for easy form management, validation, and state handling.
+- **Zod Schema Validation**: Ensure data integrity by validating user input with Zod, a TypeScript-first schema validation library.
+- **TypeScript Typing**: Benefit from strong typing throughout the project, making your codebase robust and maintainable.
+- **Framer Motion Animations**: Enhance the user interface with fluid animations provided by Framer Motion, creating an engaging user experience.
+- **Next.js 14**: Leverage the latest features of Next.js, such as improved performance, faster builds, and enhanced developer experience.
+- **Modular and Scalable**: Implement clean and modular code architecture to make the project easily extendable and maintainable.
+- **Custom Styling**: Customize the form appearance using CSS-in-JS or your preferred styling method.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Getting Started:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone this repository.
+2. Install the dependencies using `npm install` or `yarn install`.
+3. Run the development server with `npm run dev` or `yarn dev`.
+4. Build your multi-step form, add validation rules, and integrate animations as desired.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
