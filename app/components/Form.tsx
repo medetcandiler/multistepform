@@ -28,7 +28,7 @@ const steps = [
 ];
 
 const Form = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
   const [prevStep, setPrevStep] = useState(0);
   const alfa = currentStep - prevStep;
 
