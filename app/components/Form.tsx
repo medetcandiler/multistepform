@@ -30,7 +30,7 @@ const steps = [
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [prevStep, setPrevStep] = useState(0);
-
+  const alfa = currentStep - prevStep
   const {
     register,
     handleSubmit,
@@ -109,7 +109,7 @@ const Form = () => {
 
       {currentStep === 0 && (
         <motion.div
-          initial={{ x: "-50%", opacity: 0 }}
+          initial={{ x: alfa ? '-50%' : '50%', opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="flex flex-col space-y-12 "
