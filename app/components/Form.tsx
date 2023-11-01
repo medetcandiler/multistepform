@@ -24,11 +24,11 @@ const steps = [
     name: "address information",
     field: ["country", "street", "city", "state", "zip"],
   },
-  { id: "third step", name: "conguratulations" },
+  { id: "third step", name: "complete" },
 ];
 
 const Form = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
   const [prevStep, setPrevStep] = useState(0);
   const alfa = currentStep - prevStep;
 
@@ -72,10 +72,10 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-20 flex-wrap">
+    <div className="flex flex-col space-y-10 flex-wrap md:space-y-20">
       {/* steps */}
       <nav aria-label="Progress">
-        <ol role="list" className=" flex space-x-8">
+        <ol role="list" className="flex space-x-8">
           {steps.map((step, index) => (
             <li key={step.id} className="flex-1 capitalize">
               {currentStep > index ? (
@@ -235,7 +235,7 @@ const Form = () => {
                   errors.street && "peer-focus:text-red-600 text-red-600"
                 }`}
               >
-                street address
+                Street Address
               </label>
             </div>
 
