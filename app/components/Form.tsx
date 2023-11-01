@@ -74,10 +74,10 @@ const Form = () => {
   return (
     <div className="flex flex-col space-y-10 flex-wrap md:space-y-20">
       {/* steps */}
-      <nav aria-label="Progress">
-        <ol role="list" className="flex space-x-8">
+      <nav aria-label="Progress ">
+        <ol role="list" className="flex justify-between space-x-8  md:w-[500px]">
           {steps.map((step, index) => (
-            <li key={step.id} className="flex-1 capitalize">
+            <li key={step.id} className="flex-1 capitalize md:whitespace-nowrap">
               {currentStep > index ? (
                 <div className="group flex w-full flex-col border-sky-600  transition-colors border-t-4 pb-0 pl-0 pt-4">
                   <span className="text-sm font-medium text-sky-600 transition-colors">
@@ -87,7 +87,7 @@ const Form = () => {
                 </div>
               ) : currentStep === index ? (
                 <div
-                  className="flex w-full flex-col border-sky-600  border-t-4 pb-0 pl-0 pt-4 transition-colors"
+                  className="group flex w-full flex-col border-sky-600  transition-colors border-t-4 pb-0 pl-0 pt-4"
                   aria-current="step"
                 >
                   <span className="text-sm font-medium text-sky-600 transition-colors">
@@ -113,7 +113,7 @@ const Form = () => {
           initial={{ x: alfa ? "-50%" : "50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="flex flex-col space-y-12 "
+          className="flex flex-col space-y-6 md:space-y-12 "
         >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg">Personal information</h1>
@@ -193,10 +193,11 @@ const Form = () => {
         <motion.div
           initial={{ x: "50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          className={`flex flex-col space-y-12`}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={`flex flex-col space-y-6 md:space-y-12`}
         >
           <div className="flex flex-col space-y-3">
-            <h1 className="font-bold text-lg">Address information</h1>
+            <h1 className="font-bold text-lg ">Address information</h1>
             <h3>Please provide your address information.</h3>
           </div>
           <form className="flex flex-col">
@@ -207,10 +208,7 @@ const Form = () => {
                 defaultValue={"none"}
                 {...register("country")}
               >
-                <option className="text-gray-600" value="none">
-                  Select Country
-                </option>
-                <option value="tr">Turkey</option>
+                <option value="tr">Turkiye</option>
                 <option value="us">United States</option>
                 <option value="ca">Canada</option>
               </select>
