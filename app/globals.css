@@ -7,6 +7,6 @@
     @apply border border-slate-600 rounded pl-2 py-2 outline-none w-full
   }
   .icon {
-    @apply border border-sky-600 rounded-full p-1 bg-sky-100 hover:bg-sky-200
+    @apply border border-sky-600 rounded-full p-2 bg-sky-100 hover:bg-sky-200
   }
 }
