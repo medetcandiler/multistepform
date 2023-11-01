@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 
 import { FcNext } from "react-icons/fc";
 import { FcPrevious } from "react-icons/fc";
@@ -28,8 +29,8 @@ const steps = [
 
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [isNextStep, setIsNextStep] = useState<boolean>(false);
-  console.log(isNextStep)
+  const [prevStep, setPrevStep] = useState(0);
+
   const {
     register,
     handleSubmit,
@@ -54,22 +55,21 @@ const Form = () => {
     });
     if (!output) return;
     if (currentStep < steps.length - 1) {
-      if(currentStep == steps.length - 2){
-        handleSubmit(onSubmit)()
+      if (currentStep == steps.length - 2) {
+        handleSubmit(onSubmit)();
       }
+      setPrevStep(currentStep);
       setCurrentStep((prev) => prev + 1);
-      setIsNextStep(true)
     }
   };
 
   const prev = () => {
     if (currentStep > 0) {
+      setPrevStep(currentStep);
       setCurrentStep((prev) => prev - 1);
-      setIsNextStep(false)
-      
     }
   };
-
+  console.log(prevStep);
   return (
     <div className="flex flex-col space-y-20">
       {/* steps */}
@@ -108,7 +108,12 @@ const Form = () => {
       </nav>
 
       {currentStep === 0 && (
-        <section className={`flex flex-col space-y-12`}>
+        <motion.div
+          initial={{ x: "-50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="flex flex-col space-y-12 "
+        >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg">Personal information</h1>
             <h3>Please provide your personal details.</h3>
@@ -181,10 +186,14 @@ const Form = () => {
               </label>
             </div>
           </form>
-        </section>
+        </motion.div>
       )}
       {currentStep === 1 && (
-        <section className={`flex flex-col space-y-12`}>
+        <motion.div
+          initial={{ x: "50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          className={`flex flex-col space-y-12`}
+        >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg">Address information</h1>
             <h3>Please provide your address information.</h3>
@@ -292,9 +301,9 @@ const Form = () => {
               </div>
             </div>
           </form>
-        </section>
+        </motion.div>
       )}
-      {currentStep === 2 && <div>completed</div>}
+      {currentStep === 2 && <motion.div>completed</motion.div>}
 
       <div className="flex justify-between">
         {currentStep === 0 ? (
