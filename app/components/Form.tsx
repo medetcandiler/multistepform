@@ -30,7 +30,8 @@ const steps = [
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [prevStep, setPrevStep] = useState(0);
-  const alfa = currentStep - prevStep
+  const alfa = currentStep - prevStep;
+
   const {
     register,
     handleSubmit,
@@ -69,16 +70,16 @@ const Form = () => {
       setCurrentStep((prev) => prev - 1);
     }
   };
-  console.log(prevStep);
+
   return (
-    <div className="flex flex-col space-y-20">
+    <div className="flex flex-col space-y-20 flex-wrap">
       {/* steps */}
       <nav aria-label="Progress">
-        <ol role="list" className="space-y-4 md:flex md:space-x-8 md:space-y-0">
+        <ol role="list" className=" flex space-x-8">
           {steps.map((step, index) => (
-            <li key={step.id} className="md:flex-1 capitalize">
+            <li key={step.id} className="flex-1 capitalize">
               {currentStep > index ? (
-                <div className="group flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4">
+                <div className="group flex w-full flex-col border-sky-600  transition-colors border-t-4 pb-0 pl-0 pt-4">
                   <span className="text-sm font-medium text-sky-600 transition-colors">
                     {step.id}
                   </span>
@@ -86,7 +87,7 @@ const Form = () => {
                 </div>
               ) : currentStep === index ? (
                 <div
-                  className="flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4 transition-colors"
+                  className="flex w-full flex-col border-sky-600  border-t-4 pb-0 pl-0 pt-4 transition-colors"
                   aria-current="step"
                 >
                   <span className="text-sm font-medium text-sky-600 transition-colors">
@@ -95,7 +96,7 @@ const Form = () => {
                   <span className="text-sm font-medium">{step.name}</span>
                 </div>
               ) : (
-                <div className="group flex w-full flex-col border-l-4 border-gray-200 py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4">
+                <div className="group flex w-full flex-col border-gray-200  transition-colors border-t-4 pb-0 pl-0 pt-4">
                   <span className="text-sm font-medium text-gray-500 transition-colors">
                     {step.id}
                   </span>
@@ -109,7 +110,7 @@ const Form = () => {
 
       {currentStep === 0 && (
         <motion.div
-          initial={{ x: alfa ? '-50%' : '50%', opacity: 0 }}
+          initial={{ x: alfa ? "-50%" : "50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="flex flex-col space-y-12 "
@@ -120,9 +121,9 @@ const Form = () => {
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col space-y-10"
+            className="flex flex-col md:space-y-10"
           >
-            <div className="flex justify-between gap-24">
+            <div className="flex flex-col justify-between md:flex-row md:gap-24">
               <div className="relative z-0 w-full mb-6 group">
                 <input
                   type="text"
@@ -199,7 +200,7 @@ const Form = () => {
             <h3>Please provide your address information.</h3>
           </div>
           <form className="flex flex-col">
-            <div className="relative w-1/2 mb-6 group">
+            <div className="relative  mb-6 group md:w-1/2">
               <select
                 id="country"
                 className="block w-full py-2.5 pr-3  bg-transparent border-b-2 border-gray-300  focus:outline-none   appearance-none cursor-pointer"
@@ -238,7 +239,7 @@ const Form = () => {
               </label>
             </div>
 
-            <div className="flex justify-between gap-10">
+            <div className="flex flex-col md:flex-row md:justify-between md:gap-10">
               <div className="relative z-0 w-full mb-6 group">
                 <input
                   type="text"
@@ -303,7 +304,18 @@ const Form = () => {
           </form>
         </motion.div>
       )}
-      {currentStep === 2 && <motion.div>completed</motion.div>}
+      {currentStep === 2 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col space-y-12"
+        >
+          <div className="flex flex-col space-y-3">
+            <h1 className="font-bold text-lg">Congratulations</h1>
+            <h3>You have successfully completed the form!</h3>
+          </div>
+        </motion.div>
+      )}
 
       <div className="flex justify-between">
         {currentStep === 0 ? (
