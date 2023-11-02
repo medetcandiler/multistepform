@@ -75,7 +75,7 @@ const Form = () => {
     <div className="flex flex-col space-y-10 flex-wrap md:space-y-20">
       {/* steps */}
       <nav aria-label="Progress ">
-        <ol role="list" className="flex justify-between space-x-8  md:w-[500px]">
+        <ol role="list" className="flex justify-between space-x-8 ">
           {steps.map((step, index) => (
             <li key={step.id} className="flex-1 capitalize md:whitespace-nowrap">
               {currentStep > index ? (
@@ -113,7 +113,7 @@ const Form = () => {
           initial={{ x: alfa ? "-50%" : "50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="flex flex-col space-y-6 md:space-y-12 "
+          className="flex flex-col space-y-6 md:space-y-12 md:w-[500px]"
         >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg">Personal information</h1>
@@ -194,7 +194,7 @@ const Form = () => {
           initial={{ x: "50%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className={`flex flex-col space-y-6 md:space-y-12`}
+          className={`flex flex-col space-y-6 md:space-y-12  md:w-[500px]`}
         >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg ">Address information</h1>
@@ -306,7 +306,7 @@ const Form = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex flex-col space-y-12"
+          className="flex flex-col space-y-12  md:w-[500px]"
         >
           <div className="flex flex-col space-y-3">
             <h1 className="font-bold text-lg">Congratulations</h1>
